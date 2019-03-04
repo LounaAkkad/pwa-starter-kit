@@ -7,8 +7,11 @@
   "license": "BSD-3-Clause",
   "repository": "Polymer/pwa-starter-kit",
   "scripts": {
-    "start": "polymer serve",
-    "build": "npm run build:prpl-server && npm run build:static",
+    "start": "webpack-dev-server --mode development --open",
+    "start:es5": "webpack-dev-server --mode development --es5",
+    "start:build": "http-server dist/ -o",
+    "build": "webpack --mode production",
+    "build:stats": "webpack --mode production --profile --json > bundle-stats.json",
     "build:prpl-server": "polymer build --auto-base-path && rm -rf server/build && mv build server/ && renamer --find node_modules --replace node_assets 'server/build/**' && replace node_modules node_assets server/build -r -s",
     "build:static": "polymer build",
     "serve:prpl-server": "prpl-server --root server/build",
@@ -29,8 +32,17 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.2",
+    "@open-wc/building-webpack": "^0.1.9",
     "axe-core": "^3.0.0",
     "chai": "^4.1.2",
+    "http-server": "^0.11.1",
     "mocha": "^5.1.0",
     "pixelmatch": "^4.0.2",
     "polymer-cli": "^1.7.1",
@@ -39,6 +51,9 @@
     "puppeteer": "^1.4.0",
     "renamer": "^0.6.1",
     "replace": "^1.0.0",
-    "wct-browser-legacy": "^1.0.1"
+    "wct-browser-legacy": "^1.0.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1"
   }
 }
