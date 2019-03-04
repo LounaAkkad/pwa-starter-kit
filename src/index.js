@@ -1,5 +1,5 @@
-import loadPolyfills from '@open-wc/polyfills-loader'; // eslint-disable-line
+// import loadPolyfills from '@open-wc/polyfills-loader'; // eslint-disable-line
 
-loadPolyfills().then(() => {
-  import('./components/my-app.js');
-});
+// loadPolyfills().then(() => {
+//   import('./components/my-app.js');
+// });

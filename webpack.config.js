@@ -2,7 +2,6 @@ const path = require('path');
 const defaultConfig = require('@open-wc/building-webpack/default-config');
 const merge = require('webpack-merge');
 
-const BabelMultiTargetPlugin = require('webpack-babel-multi-target-plugin').BabelMultiTargetPlugin;
 
 
 
@@ -21,28 +20,13 @@ module.exports = merge(defaultConfig, {
           "sass-loader"
         ]
       },
-      {
-        test: /\.js$/,
-        use: [
-            BabelMultiTargetPlugin.loader(),
-        ],
-    },
+    
     ],
   },
 
-  resolve: {
-    mainFields: [
-        'es2015',
-        'module',
-        'main',
-    ],
-},
-
-
-plugins: [
-    new BabelMultiTargetPlugin(),
   
-],
+
+
 
 
 
@@ -50,6 +34,6 @@ plugins: [
 
 
 module.exports = defaultConfig({
-  indexHTML: path.resolve(__dirname, './src/index.html'),
-  indexJS: path.resolve(__dirname, './src/index.js'),
+  indexHTML: path.resolve(__dirname, './ndex.html'),
+  indexJS: path.resolve(__dirname, '.src/components/my-app.js'),
 });
